@@ -1,0 +1,18 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WARZONE RENDER V2</title>
+<style>body{background:#111;color:#eee;font-family:sans-serif;text-align:center;padding-top:20vh}
+button{font-size:22px;padding:14px 32px;border:0;border-radius:8px;background:#2e7d32;color:#fff;cursor:pointer}
+#m{margin-top:24px;color:#ffd54f}</style></head><body>
+<h1>WARZONE RENDER V2</h1><button id="b">JOUER</button><div id="m"></div>
+<script>
+const m=document.getElementById('m');
+document.getElementById('b').onclick=async()=>{
+  m.textContent="Le serveur se réveille, attends environ une minute...";
+  for(let i=0;i<90;i++){
+    try{const r=await fetch('/_instance',{cache:'no-store'});if(r.ok){location.href='/autre/index.html';return;}}catch(e){}
+    await new Promise(r=>setTimeout(r,2000));
+  }
+  m.textContent="Le serveur ne répond pas, réessaie dans un instant.";
+};
+</script></body></html>

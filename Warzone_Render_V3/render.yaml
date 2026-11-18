@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: warzone-fps
+    runtime: python
+    plan: free
+    buildCommand: "echo ok"
+    startCommand: "python cloud.py"
+    healthCheckPath: /_instance
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
