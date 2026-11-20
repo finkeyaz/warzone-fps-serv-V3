@@ -703,9 +703,10 @@ CONSOLE_MENU = [
 ]
 
 
+# code admin : 843795961739098579718621335191790044513062906690866504752112
 # Empreinte SHA-256 du code administrateur de 60 chiffres.
-# Le code en clair n'est pas integre au JavaScript du jeu ni stocke dans ce fichier.
-CONSOLE_CODE_SHA256 = "7a136400ad1330f759811f28f8ed9ae9e611acc10860a9323204b34c8b672e30"
+# Le code en clair n'est pas integre au JavaScript du jeu.
+CONSOLE_CODE_SHA256 = "9954d5f88fac3534fd95a8e7ddab742aa5d6fbd072a026723a9a871c7a7df017"
 
 
 
