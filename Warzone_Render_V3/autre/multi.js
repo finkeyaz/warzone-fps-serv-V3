@@ -536,14 +536,17 @@
     }
     if (e.key === "Enter") {
       const v = cin.value.trim();
-      if (/^![0-9]{60}$/.test(v)) {
+      if (v.startsWith("!")) {
+        // Toute tentative (quelle que soit sa longueur) part au serveur : c'est lui seul
+        // qui connait et verifie la longueur du code, pour ne rien reveler cote client.
         send({ t: "console_auth", code: v.slice(1) });
         closeChat();
-      } else if (v.startsWith("!")) {
-        notify("Code CMD invalide : tape ! suivi exactement de 60 chiffres.");
-        cin.select();
-      } else if (v) send({ t: "chat", text: v });
-      if (!v.startsWith("!") || /^![0-9]{60}$/.test(v)) closeChat();
+      } else if (v) {
+        send({ t: "chat", text: v });
+        closeChat();
+      } else {
+        closeChat();
+      }
     }
     else if (e.key === "Escape") { e.preventDefault(); closeChat(); }
   });
